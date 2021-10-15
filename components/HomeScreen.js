@@ -2,48 +2,17 @@ import { NavigationContainer } from '@react-navigation/native';
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {Button} from 'react-native-elements';
+import Footer from './Footer';
 
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({route, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={{flex: 1, padding: 10, flexDirection: 'column', alignSelf: 'center', justifyContent: 'flex-start'}}>
         <Text style={styles.title}>Habit Tracker</Text>
         <Text style={styles.text}>Welcome to Habit Tracker</Text>
       </View>
-      <View style={{flex: 3, padding: 10, flexDirection: 'column', justifyContent: 'center'}}>
-        <Button 
-          titleStyle={{color: "pink", fontSize: 40}}
-          buttonStyle={{
-            backgroundColor: "white",
-            margin: 20
-          }}
-          title="About"
-          onPress={() => navigation.navigate('About')}
-        />
-        <Button
-          titleStyle={{color: "pink", fontSize: 40}}
-          buttonStyle={{
-            backgroundColor: "white",
-            margin: 20
-          }}
-          title="Tasks"
-          onPress={() => navigation.navigate('Tasks')}
-        />
-        <Button
-          titleStyle={{color: "pink", fontSize: 40}}
-          buttonStyle={{
-            backgroundColor: "white",
-            margin: 20
-          }}
-          title="Profile"
-          onPress={() => navigation.navigate('Tasks')}
-        />
-        
-      </View>
-      
-      
-
+      <Footer navigation={navigation}/>
     </View>
   );
 }

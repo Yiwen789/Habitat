@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TextInput, Image} from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import {Card, Button} from 'react-native-elements';
+import { useNavigation } from "@react-navigation/core";
+import Footer from "./Footer";
 
 const DATA = [
   {
@@ -21,38 +23,46 @@ const DATA = [
 
 ]
 
-const Item = ({item}) => (
-  <Card wrapperStyle={{flex: 1, flexDirection: 'column'}} containerStyle={{padding: 10}} >
-    <View style={{flex: 4, flexDirection: "row"}} >
-      <Image
-        style={{flex: 1, width: 120, height: 90}}
-        resizeMode="cover"
-        source={{ uri: item.image }}
-      />
-      <Card.Title style={{margin: 15, fontSize: 16, flex: 2}}>Tracking: {item.title}</Card.Title>
-    </View>
-    <Card.Divider style={{flex: 1, margin: 10}}/>
-    <View style={{flex: 1, flexDirection: "row", justifyContent: 'space-between'}}>
-      <View style={{flexDirection: "row", alignSelf: 'center'}}>
-        <Text style={{color: 'gray'}}>Participants:</Text> 
-        <Text >{item.participants}</Text>
-      </View>
-      <View style={{flexDirection: "row", alignSelf: 'center'}}>
-        <Text style={{color: 'gray'}}>Completed </Text>
-        <Text >{item.completedTimes} </Text>
-        <Text style={{color: 'gray'}}>Times</Text>
-      </View>
-    </View>
-      
+const TaskItem = ({item}) => {
+  const navigation = useNavigation();
+  
+  return(
+    <TouchableWithoutFeedback onPress={()=>
+      navigation.navigate("TaskDetails", {
+      title: item.title,
+      image: item.image,
+      participants: item.participants
+    })}>
+      <Card wrapperStyle={{flex: 1, flexDirection: 'column'}} containerStyle={{padding: 10}} >
+        <View style={{flex: 4, flexDirection: "row"}} >
+          <Image
+            style={{flex: 1, width: 120, height: 90}}
+            resizeMode="cover"
+            source={{ uri: item.image }}
+          />
+          <Card.Title style={{margin: 15, fontSize: 16, flex: 2}}>Tracking: {item.title}</Card.Title>
+        </View>
+        <Card.Divider style={{flex: 1, margin: 10}}/>
+        <View style={{flex: 1, flexDirection: "row", justifyContent: 'space-between'}}>
+          <View style={{flexDirection: "row", alignSelf: 'center'}}>
+            <Text style={{color: 'gray'}}>Participants:</Text> 
+            <Text >{item.participants}</Text>
+          </View>
+          <View style={{flexDirection: "row", alignSelf: 'center'}}>
+            <Text style={{color: 'gray'}}>Completed </Text>
+            <Text >{item.completedTimes} </Text>
+            <Text style={{color: 'gray'}}>Times</Text>
+          </View>
+        </View>
+      </Card>
+    </TouchableWithoutFeedback>
     
-    
-</Card>
-
-);
+  );
+}
 
 const GoalsList = () => {
   const renderItem = ({item}) => (
-    <Item title={item.title}/>
+    <TaskItem title={item.title}/>
   );
 }
 
@@ -60,46 +70,20 @@ const TasksScreen = ({navigation}) => {
   const [showForm, setShowForm] = useState(false);
 
   return (
-    <View style={{ flex: 1, justifyContent: 'flex-start'}}>
-      <View style={{padding: 10, flexDirection: 'column', alignSelf: 'center'}}>
-        <Text style={styles.title}>Goals</Text>
+    <View style={styles.container }>
+      <View style={{flex: 1, padding: 10, alignSelf: 'center'}}>
+        <Text style={styles.title}>Habits</Text>
       </View>
-      <View style={{padding: 10, flexDirection: 'column'}}>
+      <View style={{flex: 4, padding: 10, justifyContent: 'flex-start', flexDirection: 'column'}}>
         <FlatList 
           style={{}}
           data={DATA}
-          renderItem={({item}) => <Item item={item} />}
+          onPress={() => navigation.navigate('Home')}
+          renderItem={({item}) => <TaskItem item={item} />}
           keyExtractor={item => item.id}
         />
       </View>
-      <View>
-        <Button
-         titleStyle={{color: "pink", fontSize: 40}}
-         buttonStyle={{
-           backgroundColor: "white",
-           margin: 20
-         }}
-          title="Add"
-          onPress={() => navigation.navigate('GoalForm')}
-        />
-        <Button 
-          titleStyle={{color: "pink", fontSize: 40}}
-          buttonStyle={{
-            backgroundColor: "white",
-            margin: 20
-          }}
-          title="Home"
-          onPress={() => navigation.navigate('Home')} />
-        <Button
-          titleStyle={{color: "pink", fontSize: 40}}
-          buttonStyle={{
-            backgroundColor: "white",
-            margin: 20
-          }}
-          title="Go Back"
-          onPress={() => navigation.goBack()} />
-      </View>
-      
+      <Footer navigation={navigation}/>
     </View>
   );
 }
@@ -108,7 +92,7 @@ const TasksScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    flexDirection: 'column',
     marginHorizontal: 20,
     padding: 10
   },

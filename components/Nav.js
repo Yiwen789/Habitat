@@ -8,6 +8,7 @@ import DetailsScreen from './DetailsScreen';
 import TasksScreen from './TasksScreen';
 import AboutScreen from './AboutScreen';
 import GoalForm from './GoalForm';
+import TaskDetailsScreen from './TaskDetailsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,8 @@ const Nav = () => {
         <Stack.Screen name="About" component={AboutScreen}/>
         <Stack.Screen name="GoalForm" component={GoalForm}/>
         <Stack.Screen name="Tasks" component={TasksScreen}/>
+        <Stack.Screen name="TaskItem" component={TasksScreen}/>
+        <Stack.Screen name="TaskDetails" component={TaskDetailsScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
