@@ -2,9 +2,10 @@ import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {Button} from 'react-native-elements';
 
+
 const Footer = ({navigation}) => {
   return(
-    <View style={{padding: 10, flexDirection: 'row', justifyContent: 'flex-end', alignSelf: 'center'}}>
+    <View style={{padding: 10, flexDirection: 'row', justifyContent: 'ceneter', alignSelf: 'center'}}>
       <Button 
         titleStyle={{color: "pink", fontSize: 30}}
         buttonStyle={{
