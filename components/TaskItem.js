@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TextInput, Image} from 'react-native';
-import { FlatList, TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import {TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/core";
 
 import {Card, Button} from 'react-native-elements';

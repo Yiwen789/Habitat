@@ -1,10 +1,10 @@
 import { useNavigation } from '@react-navigation/core';
 import * as React from 'react';
 import { StyleSheet, Text, View, Button, Image} from 'react-native';
-import Footer from './Footer';
-import { getTask } from "../services/taskServices";
+import Footer from '../Footer';
+import { getTask } from "../../services/taskServices";
 
-const TaskDetailsScreen = ({ route, navigation}) => {
+const TaskDetailsScreen = ({ route, navigation }) => {
   const {title, image, participants} = route.params;
   console.log(JSON.parse(JSON.stringify(title, null, 2)));
   return (
