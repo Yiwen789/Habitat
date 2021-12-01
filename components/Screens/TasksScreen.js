@@ -6,27 +6,9 @@ import TaskItem from "../TaskItem";
 
 import ValueProvider,{useValue} from '../ValueContext';
 
-
-
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from 'axios';
 
-const DATA = [
-  {
-    id: 1,
-    title: "Wake Up Early",
-    completedTimes: 10,
-    participants: 2,
-    image: "https://source.unsplash.com/random",
-  },
-  {
-    id: 2,
-    title: "Exercise",
-    completedTimes: 20,
-    participants: 5,
-    image: "https://source.unsplash.com/random",
-  },
-]
 
 const TasksScreen = ({navigation}) => {
   const appUrl = "http://localhost:3000";
@@ -35,22 +17,9 @@ const TasksScreen = ({navigation}) => {
   useEffect(() => {getData()}
   , [])
 
-  // const storeData = async(value) => {
-  //   try {
-  //     const jsonValue = JSON.stringify(value);
-  //     await AsyncStorage.setItem('@tasks_info', jsonValue);
-  //   }
-  //   catch(e) {
-  //     console.log(e);
-  //     console.dir(e);
-  //   }
-  // }
-
 
   const getData = async() => {
     try {
-      // the '@profile_info' can be any string
-      // const jsonValue = await AsyncStorage.getItem('@tasks_info');
       const res = await axios.get("http://localhost:3000/tasks")
       .then(res => res.data
       )
@@ -58,11 +27,6 @@ const TasksScreen = ({navigation}) => {
         console.log(res);
         setTasks(res);
       }
-      // let data = null;
-      // if (jsonValue!=null) {
-      //   data = JSON.parse(jsonValue);
-      //   setTasks(data);
-      // } 
     }
     catch(e) {
       console.log("error");
