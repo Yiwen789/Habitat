@@ -37,6 +37,30 @@ const HomeScreen = ({route, navigation}) => {
     <View style={styles.container}>
       <View style={{flex: 1, padding: 10, flexDirection: 'column', alignSelf: 'center', justifyContent: 'flex-start'}}>        
           
+          {/* <Card wrapperStyle={styles.cardWrapper} containerStyle={styles.cardContainer}>
+            <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+              <Card.Title style={{fontSize: 16, textAlign: 'left'}}>Participating tasks</Card.Title>
+              <TouchableWithoutFeedback onPress={()=>
+                  navigation.navigate("ParticipatingTasks"
+                )}>
+                <Card.Title style={{fontSize: 12, textAlign: 'right', color: 'gray'}}>View More</Card.Title>
+              </TouchableWithoutFeedback>
+            </View>
+            <Card.Divider/>
+          </Card> */}
+
+          <Card wrapperStyle={styles.cardWrapper} containerStyle={styles.cardContainer}>
+            <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+              <Card.Title style={{fontSize: 16, textAlign: 'left'}}>My tasks</Card.Title>
+              <TouchableWithoutFeedback onPress={()=>
+                  navigation.navigate("MyTasks"
+                )}>
+                <Card.Title style={{fontSize: 12, textAlign: 'right', color: 'gray'}}>View More</Card.Title>
+              </TouchableWithoutFeedback>
+            </View>
+            <Card.Divider/>
+          </Card>
+        
           <Card wrapperStyle={styles.cardWrapper} containerStyle={styles.cardContainer}>
             <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
               <Card.Title style={{fontSize: 16, textAlign: 'left'}}>Participating tasks</Card.Title>
@@ -49,20 +73,8 @@ const HomeScreen = ({route, navigation}) => {
             <Card.Divider/>
           </Card>
         
-          <Card wrapperStyle={{flexDirection: 'column'}} containerStyle={{padding: 10}}>
-            <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
-              <Card.Title style={{fontSize: 16, textAlign: 'left'}}>Participating tasks</Card.Title>
-              <TouchableWithoutFeedback onPress={()=>
-                  navigation.navigate("ParticipatingTasks"
-                )}>
-                <Card.Title style={{fontSize: 12, textAlign: 'right', color: 'gray'}}>View More</Card.Title>
-              </TouchableWithoutFeedback>
-            </View>
-            <Card.Divider/>
-          </Card>
         
-        
-          <Card wrapperStyle={{flexDirection: 'column'}} containerStyle={{padding: 10}}>
+          <Card wrapperStyle={styles.cardWrapper} containerStyle={styles.cardContainer}>
             <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
               <Card.Title style={{fontSize: 16, textAlign: 'left'}}>Recommendations</Card.Title>
               <TouchableWithoutFeedback onPress={()=>
