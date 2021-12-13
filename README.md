@@ -13,7 +13,9 @@ This project is currently in development...
 
 ## Project Screen Shot(s)
 
-
+![alt text](https://github.com/Yiwen789/Habitat/blob/main/assets/demo1.png?raw=true)
+![alt text](https://github.com/Yiwen789/Habitat/blob/main/assets/demo2.png?raw=true)
+![alt text](https://github.com/Yiwen789/Habitat/blob/main/assets/demo3.png?raw=true)
 
 
 ## Developer Notes
