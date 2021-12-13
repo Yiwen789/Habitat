@@ -29,58 +29,8 @@ const NewTaskScreen = ({navigation}) => {
 
   return (
     <View style={{ flex: 1, flexDirection: 'col', alignItems: 'center', justifyContent: 'space-around' }}>  
-      <View style={{flex: 1, flexDirection: 1}}>
-        <Text style={{fontSize: '30'}}>New Task</Text>
-      </View>    
-      <View style={{flex: 3, flexDirection: 'row', margin: 30, justifyContent: 'center'}}>
-        <View style={{flex: 1, flexDirection: 'col' }}>
-          <Card containerStyle={styles.cardContainer}>
-            <Icon name='sc-telegram' type='evilicon' color='#517fa4'/>
-            <Card.Title>
-              Create One-time Task
-            </Card.Title>    
-            <Text style={{color: 'gray', fontSize: 11}}>
-              <Icon name='help-circle-outline' size="12" type='ionicon' color='lightgray'/>
-              One-time task only appears one and checks off your list
-            </Text>
-          </Card>
-          <Card containerStyle={styles.cardContainer}>
-            <Icon name='calendar-outline' type='ionicon' color='#517fa4'/>
-            <Card.Title>
-              Create Daily Task
-            </Card.Title>
-            <Text style={{color: 'gray', fontSize: 11}}>
-              <Icon name='help-circle-outline' size="12" type='ionicon' color='lightgray'/>
-              One-time task only appears one and checks off your list
-            </Text>
-          </Card>
-        </View>
-        
-        <View style={{flex: 1, flexDirection: 'col' }}>
-          <Card containerStyle={styles.cardContainer}>
-            <Icon name='checkmark-done-outline' type='ionicon' color='#517fa4'/>       
-            <Card.Title>   
-              Create Multi-time Task
-            </Card.Title>
-            <Text style={{color: 'gray', fontSize: 11}}>
-              <Icon name='help-circle-outline' size="12" type='ionicon' color='lightgray'/>
-              One-time task only appears one and checks off your list
-            </Text>
-          </Card>
-          <Card containerStyle={styles.cardContainer}>
-            <Icon name='albums-outline' type='ionicon' color='#517fa4'/>
-            <Card.Title>
-              Use Template
-            </Card.Title>
-            <Text style={{color: 'gray', fontSize: 11}}>
-              <Icon name='help-circle-outline' size="12" type='ionicon' color='lightgray'/>
-              One-time task only appears one and checks off your list
-            </Text>
-          </Card>
-        </View>
-      </View>
       
-      {/* <Text>Create a New Task</Text>
+      <Text>Create a New Task</Text>
       <Input
         placeholder="Input a Task"
         leftIcon={{ type: 'font-awesome', name: 'book' }}
@@ -92,10 +42,9 @@ const NewTaskScreen = ({navigation}) => {
         leftIcon={{ type: 'font-awesome', name: 'book' }}
         onChangeText={input => setImage(input)}
         value={image}
-      /> */}
-      {/* frequency */}
-      {/* owner */}
-      {/* <Button 
+      />
+
+      <Button 
       title="submit" 
       onPress={() => {
         const newTask = tasks.concat(
@@ -115,12 +64,7 @@ const NewTaskScreen = ({navigation}) => {
         setOwner("");
       }}
       />
-      <Button
-          color='blue' title='Load Profile from Memory'
-          onPress = {() => {
-            console.log('loading profile');
-          }}
-        /> */}
+  
     </View>
   );
 }
