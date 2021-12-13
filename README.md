@@ -13,9 +13,8 @@ This project is currently in development...
 
 ## Project Screen Shot(s)
 
-[ PRETEND SCREEN SHOT IS HERE ]
 
-[ PRETEND OTHER SCREEN SHOT IS HERE ]
+
 
 ## Developer Notes
 
