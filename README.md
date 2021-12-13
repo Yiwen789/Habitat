@@ -22,5 +22,5 @@ This project is currently in development...
 
 React Native, MongoDB
 
-## Demo Link
+## Movie Link
 https://drive.google.com/file/d/1B5AeQU6M7fv9j1lNYgsFVnJ7ZEWXlPWp/view?usp=sharing
